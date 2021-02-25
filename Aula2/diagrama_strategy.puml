@@ -1,4 +1,7 @@
 @startuml
+'top to bottom direction
+left to right direction
+
 
 abstract class FuncionarioBase{
   + SalarioBaseStrategy salarioS;
@@ -33,17 +36,17 @@ class NaoComissionado extends ComissaoStrategy {
   + float calculaComissao(float total)
 }
 
-class Vendedor extends IFuncionario{
+class Vendedor extends FuncionarioBase{
   +Vendedor()
   +float calculaSalario()
 }
 
-class Comprador extends IFuncionario{
+class Comprador extends FuncionarioBase{
   +Comprador()
   +float calculaSalario()
 }
 
-class Funcionario extends IFuncionario{
+class Funcionario extends FuncionarioBase{
   +Comprador()
   +float calculaSalario()
 }
