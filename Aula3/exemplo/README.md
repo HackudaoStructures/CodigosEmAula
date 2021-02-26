@@ -1,3 +1,3 @@
 # Resposta
 
-!()(diagrama.png)
+![](diagrama.png)
