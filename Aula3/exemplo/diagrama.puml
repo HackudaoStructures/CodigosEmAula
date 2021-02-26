@@ -1,0 +1,50 @@
+@startuml
+scale 2
+abstract class Display{
+  +{abstract} int getColumns();
+  +{abstract} int getRows();
+  +{abstract} String getLineText(int row);
+  +void show()
+}
+
+abstract class Frame extends Display{
+  #Display display
+  #Frame(Display display)
+}
+
+class FullFrame extends Frame{
+  + FullFrame(Display display)
+  +int getColumns()
+  +int getRows()
+  +String getLineText(int row)
+  -String createLine(char ch, int size)
+}
+
+class MessageDisplay extends Display{
+  -String message
+  +MessageDisplay(String message)
+  +int getColumns()
+  +int getRows() 
+  +String getLineText(int row)
+}
+
+class SideFrame extends Frame{
+  -char frameChar
+  +SideFrame(Display display, char frameChar)
+  +int getColumns()
+  +int getRows()
+  +String getLineText(int row)
+
+}
+
+Frame *--> Display
+
+class Main{
+  +{static} void main(String[] args)
+}
+
+Main -up-> MessageDisplay
+Main -up-> SideFrame
+Main -up-> FullFrame
+
+@enduml
